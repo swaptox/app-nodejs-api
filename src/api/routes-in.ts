@@ -309,6 +309,9 @@ export const routesIn = async (chain, req) => {
 			status: 200
 		});
 	} catch (err) {
+
+		console.log('询价失败', err, config[chain].rpc);
+		
 		return new Response(JSON.stringify({
 			message: 'request error' //err?.message ?? err
 		}), {
