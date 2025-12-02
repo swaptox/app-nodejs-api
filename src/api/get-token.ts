@@ -8,27 +8,6 @@ export const getToken = async (chain, req) => {
 	const from = (page - 1) * pageSize;
 	const to = from + pageSize - 1;
 
-
-
-const { data, error } = await supabase
-  .from(`${chain}-token`)
-  .select()
-
-	if (error) {
-		console.log('error mag?', error);
-		throw error;
-	}
-	return new Response(JSON.stringify(data), {
-		headers: {
-			...corsHeaders,
-			'Content-Type': 'application/json'
-		},
-		status: 200
-	});
-
-
-/**
-	
 	
 	let query = supabase.from(`${chain}-token`).select('decimals, name, symbol, address, logo, has_permit, price_usd');
 	
@@ -36,8 +15,6 @@ const { data, error } = await supabase
 	if (keyword) {
 		query = query.or(`name.ilike.%${keyword}%,symbol.ilike.%${keyword}%,address.ilike.%${keyword}%`); // 搜索
 	}
-
-
 	
 	
 	let onlyVerified = searchParams.get('onlyVerified')?.toString();
@@ -66,8 +43,5 @@ const { data, error } = await supabase
 		},
 		status: 200
 	});
-
-
-*/
 	
 };
