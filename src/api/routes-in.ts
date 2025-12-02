@@ -149,7 +149,7 @@ export const routesIn = async (chain, req) => {
 	} else {
 		tokenIn = tokenIn.toLowerCase();
 		if(tokenIn === config[chain].ether.native.toLowerCase()){
-
+			tokenIn = config[chain].ether.wrapped.toLowerCase();
 		}
 	}
 	if (!tokenOut) {
@@ -164,6 +164,9 @@ export const routesIn = async (chain, req) => {
 		});
 	} else {
 		tokenOut = tokenOut.toLowerCase();
+		if(tokenOut === config[chain].ether.native.toLowerCase()){
+			tokenOut = config[chain].ether.wrapped.toLowerCase();
+		}
 	}
 	if (!amountStr) {
 		return new Response(JSON.stringify({
