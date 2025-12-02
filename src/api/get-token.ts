@@ -7,6 +7,13 @@ export const getToken = async (chain, req) => {
 	const pageSize = parseInt(searchParams.get('size') || '100');
 	const from = (page - 1) * pageSize;
 	const to = from + pageSize - 1;
+
+
+console.log('page', page);
+console.log('pageSize', pageSize);
+
+
+	
 	let query = supabase.from(`${chain}-token`).select('decimals, name, symbol, address, logo, has_permit, price_usd');
 	let keyword = searchParams.get('keyword');
 	if (keyword) {
