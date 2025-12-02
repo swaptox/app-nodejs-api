@@ -1,17 +1,23 @@
-import * as BunnySDK from "https://esm.sh/@bunny.net/edgescript-sdk@0.10.0";
+import * as BunnySDK from "https://esm.sh/@bunny.net/edgescript-sdk@0.11.2";
 
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
-console.log("Starting server...");
-const listener = BunnySDK.net.tcp.unstable_new();
 
-console.log("Listening on: ", BunnySDK.net.tcp.toString(listener));
-BunnySDK.net.http.serve(
-  async (req) => {
-    console.log(`[INFO]: ${req.method} - ${req.url}`);
-    await sleep(1);
-    return new Response("Hello mom!");
-  },
-);
+
+
+BunnySDK.net.http.serve(async (request: Request): Response | Promise<Response> => {
+
+    const data= {
+        "weather":"sunny",
+        "temperature" : 2799,
+        "windspeed": 0,
+        "uvindex": 7
+    }
+
+    const json=JSON.stringify(data);
+
+    return new Response(json, {
+        headers: {
+            "content-type": "application/json"
+        }
+    });
+});
