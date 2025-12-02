@@ -25,7 +25,7 @@ BunnySDK.net.http.serve(async (request : Request) : Response | Promise<Response>
    		return await routesIn(network, request);
 	}
 	
-
+	console.log('api_url', url);
 	
 	return new Response(JSON.stringify({
 		error: 'ApiError:' + network + '/' + command
