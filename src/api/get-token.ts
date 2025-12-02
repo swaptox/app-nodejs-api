@@ -9,44 +9,38 @@ export const getToken = async (chain, req) => {
 	const to = from + pageSize - 1;
 
 
-console.log('page', 1, chain);
 
-console.log('supabase', supabase);
+
+
 
 	
 	let query = supabase.from(`${chain}-token`).select('decimals, name, symbol, address, logo, has_permit, price_usd');
-
-console.log('page', query);
 	
 	let keyword = searchParams.get('keyword');
 	if (keyword) {
 		query = query.or(`name.ilike.%${keyword}%,symbol.ilike.%${keyword}%,address.ilike.%${keyword}%`); // 搜索
 	}
 
-console.log('page', 3);
 
 	
-	query = query.eq('disabled', false);
+	
 	let onlyVerified = searchParams.get('onlyVerified')?.toString();
 	if (onlyVerified === 'true') {
 		query = query.eq('is_verified', true); // *新增筛选条件*
 	}
 
-console.log('page', 4);
 	
-	const { data, error } = await query.order('sorting', {
+	const { data, error } = await query.eq('disabled', false)
+	.order('sorting', {
 		ascending: false // 根据 sorting 降序排列
 	}).order('id', {
 		ascending: true
 	}).range(from, to);
 
 
-console.log('page', 5);
 	
 	if (error) {
-
-console.log('page', 666);
-		
+		console.log('error mag', error);
 		throw error;
 	}
 	return new Response(JSON.stringify(data), {
