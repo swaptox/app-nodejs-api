@@ -9,7 +9,7 @@ export const getToken = async (chain, req) => {
 	const to = from + pageSize - 1;
 
 
-console.log('page', 1);
+console.log('page', 1, page);
 
 
 
