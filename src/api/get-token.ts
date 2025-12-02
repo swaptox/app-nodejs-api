@@ -1,11 +1,5 @@
 import { corsHeaders } from '../_cors.ts';
-//import { supabase } from '../_database.ts';
-
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-import process from "node:process";
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
-
-
+import { supabase } from '../_database.ts';
 export const getToken = async (chain, req) => {
 	const url = new URL(req.url);
 	const searchParams = url.searchParams;
@@ -15,27 +9,44 @@ export const getToken = async (chain, req) => {
 	const to = from + pageSize - 1;
 
 
-console.log('page', page, process.env.SUPABASE_URL);
-console.log('pageSize', pageSize, process.env.SUPABASE_ANON_KEY);
+console.log('page', 1);
+
 
 
 	
 	let query = supabase.from(`${chain}-token`).select('decimals, name, symbol, address, logo, has_permit, price_usd');
+
+console.log('page', 2);
+	
 	let keyword = searchParams.get('keyword');
 	if (keyword) {
 		query = query.or(`name.ilike.%${keyword}%,symbol.ilike.%${keyword}%,address.ilike.%${keyword}%`); // 搜索
 	}
+
+console.log('page', 3);
+
+	
 	query = query.eq('disabled', false);
 	let onlyVerified = searchParams.get('onlyVerified')?.toString();
 	if (onlyVerified === 'true') {
 		query = query.eq('is_verified', true); // *新增筛选条件*
 	}
+
+console.log('page', 4);
+	
 	const { data, error } = await query.order('sorting', {
 		ascending: false // 根据 sorting 降序排列
 	}).order('id', {
 		ascending: true
 	}).range(from, to);
+
+
+console.log('page', 5);
+	
 	if (error) {
+
+console.log('page', 666);
+		
 		throw error;
 	}
 	return new Response(JSON.stringify(data), {
