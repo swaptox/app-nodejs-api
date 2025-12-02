@@ -5,6 +5,7 @@ import { corsHeaders } from './_cors.ts';
 import { getToken } from './api/get-token.ts';
 import { routesIn } from './api/routes-in.ts';
 import { farcasterAuth } from './api/farcaster-auth.ts';
+import { getTokenPrices } from './api/get-token-prices.ts';
 
 BunnySDK.net.http.serve(async (request : Request) : Response | Promise<Response> => {
 
@@ -26,7 +27,9 @@ BunnySDK.net.http.serve(async (request : Request) : Response | Promise<Response>
    		return await routesIn(network, request);
 	} else if (command === 'farcaster-auth') {
     	return await farcasterAuth(network, request);
- 	}
+ 	} else if (command === 'get-token-prices') {
+   		return await getTokenPrices(network, request);
+  	}
 	
 	console.log('api_url', url);
 	
