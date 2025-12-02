@@ -11,7 +11,7 @@ export const getToken = async (chain, req) => {
 
 console.log('page', 1, chain);
 
-
+console.log('supabase', supabase);
 
 	
 	let query = supabase.from(`${chain}-token`).select('decimals, name, symbol, address, logo, has_permit, price_usd');
