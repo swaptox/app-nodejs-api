@@ -148,6 +148,9 @@ export const routesIn = async (chain, req) => {
 		});
 	} else {
 		tokenIn = tokenIn.toLowerCase();
+		if(tokenIn === config[chain].ether.native.toLowerCase()){
+
+		}
 	}
 	if (!tokenOut) {
 		return new Response(JSON.stringify({
