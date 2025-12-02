@@ -1,5 +1,11 @@
 import { corsHeaders } from '../_cors.ts';
-import { supabase } from '../_database.ts';
+//import { supabase } from '../_database.ts';
+
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import process from "node:process";
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
+
+
 export const getToken = async (chain, req) => {
 	const url = new URL(req.url);
 	const searchParams = url.searchParams;
@@ -10,7 +16,7 @@ export const getToken = async (chain, req) => {
 
 
 console.log('page', page);
-console.log('pageSize', pageSize);
+console.log('pageSize', pageSize, 8888);
 
 
 	
