@@ -15,8 +15,8 @@ export const getToken = async (chain, req) => {
 	const to = from + pageSize - 1;
 
 
-console.log('page', page);
-console.log('pageSize', pageSize, 8888);
+console.log('page', page, process.env.SUPABASE_URL);
+console.log('pageSize', pageSize, process.env.SUPABASE_ANON_KEY);
 
 
 	
