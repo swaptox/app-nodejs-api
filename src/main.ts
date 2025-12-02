@@ -4,6 +4,7 @@ import { corsHeaders } from './_cors.ts';
 
 import { getToken } from './api/get-token.ts';
 import { routesIn } from './api/routes-in.ts';
+import { farcasterAuth } from './api/farcaster-auth.ts';
 
 BunnySDK.net.http.serve(async (request : Request) : Response | Promise<Response> => {
 
@@ -23,7 +24,9 @@ BunnySDK.net.http.serve(async (request : Request) : Response | Promise<Response>
 		return await getToken(network, request);
 	} else if (command === 'routes-in') {
    		return await routesIn(network, request);
-	}
+	} else if (command === 'farcaster-auth') {
+    	return await farcasterAuth(network, request);
+ 	}
 	
 	console.log('api_url', url);
 	
