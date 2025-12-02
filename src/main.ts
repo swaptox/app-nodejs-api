@@ -19,12 +19,12 @@ BunnySDK.net.http.serve(async (request : Request) : Response | Promise<Response>
 	const command = pathname.pop();
 
 	if (command === 'get-token') {
-		return await getToken(platform, req);
+		return await getToken(network, request);
 	}
 	
 	
 	return new Response(JSON.stringify({
-		error: 'ApiError:' + platform + '/' + command
+		error: 'ApiError:' + network + '/' + command
 	}), {
 		headers: {
 			...corsHeaders,
