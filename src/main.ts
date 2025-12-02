@@ -3,6 +3,7 @@ import * as BunnySDK from "https://esm.sh/@bunny.net/edgescript-sdk@0.11.2";
 import { corsHeaders } from './_cors.ts';
 
 import { getToken } from './api/get-token.ts';
+import { routesIn } from './api/routes-in.ts';
 
 BunnySDK.net.http.serve(async (request : Request) : Response | Promise<Response> => {
 
@@ -20,6 +21,8 @@ BunnySDK.net.http.serve(async (request : Request) : Response | Promise<Response>
 
 	if (command === 'get-token') {
 		return await getToken(network, request);
+	} else if (command === 'routes-in') {
+   		return await routesIn(network, request);
 	}
 	
 	
