@@ -1,0 +1,529 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "amountIns",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[][]",
+        "name": "paths",
+        "type": "address[][]"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "pool",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "version",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint56",
+            "name": "dapp_id",
+            "type": "uint56"
+          },
+          {
+            "internalType": "address[]",
+            "name": "tokens",
+            "type": "address[]"
+          }
+        ],
+        "internalType": "struct PairsObject[]",
+        "name": "pools",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "batchQueryPathsOutput",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountOut",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "amountOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "realAmountOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "realAmountIn",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "gasEstimate",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct RealOutput[]",
+            "name": "output",
+            "type": "tuple[]"
+          },
+          {
+            "internalType": "bytes",
+            "name": "data",
+            "type": "bytes"
+          },
+          {
+            "internalType": "uint256",
+            "name": "blockNumber",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address[]",
+            "name": "paths",
+            "type": "address[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "version",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint56",
+                "name": "dapp_id",
+                "type": "uint56"
+              }
+            ],
+            "internalType": "struct PoolObject[]",
+            "name": "pools",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct SwapData[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "filterId",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[][]",
+        "name": "paths",
+        "type": "address[][]"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "pool",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "version",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint56",
+            "name": "dapp_id",
+            "type": "uint56"
+          },
+          {
+            "internalType": "address[]",
+            "name": "tokens",
+            "type": "address[]"
+          }
+        ],
+        "internalType": "struct PairsObject[]",
+        "name": "allPairs",
+        "type": "tuple[]"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountOut",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct swaptorxQuery.IncomeParams[]",
+        "name": "incomeNodes",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "findPathsIncomeSwaps",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountOut",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "amountOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "realAmountOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "realAmountIn",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "gasEstimate",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct RealOutput[]",
+            "name": "output",
+            "type": "tuple[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "blockNumber",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address[]",
+            "name": "paths",
+            "type": "address[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "pool",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "version",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint56",
+                "name": "dapp_id",
+                "type": "uint56"
+              },
+              {
+                "internalType": "address[]",
+                "name": "tokens",
+                "type": "address[]"
+              }
+            ],
+            "internalType": "struct PairsObject[]",
+            "name": "pools",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct swaptorxQuery.SwapBack[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address[][]",
+        "name": "paths",
+        "type": "address[][]"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "pool",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "version",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint56",
+            "name": "dapp_id",
+            "type": "uint56"
+          },
+          {
+            "internalType": "address[]",
+            "name": "tokens",
+            "type": "address[]"
+          }
+        ],
+        "internalType": "struct PairsObject[]",
+        "name": "pools",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "maxPathsOutput",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountOut",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "amountOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "realAmountOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "realAmountIn",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "gasEstimate",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct RealOutput[]",
+            "name": "output",
+            "type": "tuple[]"
+          },
+          {
+            "internalType": "bytes",
+            "name": "data",
+            "type": "bytes"
+          },
+          {
+            "internalType": "uint256",
+            "name": "blockNumber",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address[]",
+            "name": "paths",
+            "type": "address[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "version",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint56",
+                "name": "dapp_id",
+                "type": "uint56"
+              }
+            ],
+            "internalType": "struct PoolObject[]",
+            "name": "pools",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct SwapData[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "quoterAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setQuoterAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_queryAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "batchQueryTokenBalance",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getNativeBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "NativeETHaddr",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      }
+    ],
+    "name": "queryTokenDetails",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "decimals",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalSupply",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct TokenDetails",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
