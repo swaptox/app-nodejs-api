@@ -1,23 +1,35 @@
 import * as BunnySDK from "https://esm.sh/@bunny.net/edgescript-sdk@0.11.2";
 
+import { corsHeaders } from './_cors.ts';
 
+import { getToken } from './api/get-token.ts';
 
+BunnySDK.net.http.serve(async (request : Request) : Response | Promise<Response> => {
 
+	if (request.method === 'OPTIONS') {
+		return new Response('ok', {
+			headers: corsHeaders,
+			status: 200
+		});
+	}
 
-BunnySDK.net.http.serve(async (request: Request): Response | Promise<Response> => {
+	const url = new URL(request.url);
+	const pathname = url.pathname.split('/');
+	const network = pathname[pathname.length - 2];
+	const command = pathname.pop();
 
-    const data= {
-        "weather":"sunny",
-        "temperature" : 2799,
-        "windspeed": 0,
-        "uvindex": 7
-    }
-
-    const json=JSON.stringify(data);
-
-    return new Response(json, {
-        headers: {
-            "content-type": "application/json"
-        }
-    });
+	if (command === 'get-token') {
+		return await getToken(platform, req);
+	}
+	
+	
+	return new Response(JSON.stringify({
+		error: 'ApiError:' + platform + '/' + command
+	}), {
+		headers: {
+			...corsHeaders,
+			'Content-Type': 'application/json'
+		},
+		status: 400
+	});
 });
