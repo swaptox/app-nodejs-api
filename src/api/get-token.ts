@@ -9,14 +9,14 @@ export const getToken = async (chain, req) => {
 	const to = from + pageSize - 1;
 
 
-console.log('page', 1, page);
+console.log('page', 1, chain);
 
 
 
 	
 	let query = supabase.from(`${chain}-token`).select('decimals, name, symbol, address, logo, has_permit, price_usd');
 
-console.log('page', 2);
+console.log('page', query);
 	
 	let keyword = searchParams.get('keyword');
 	if (keyword) {
