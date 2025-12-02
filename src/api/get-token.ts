@@ -10,9 +10,25 @@ export const getToken = async (chain, req) => {
 
 
 
+const { data, error } = await supabase
+  .from(`${chain}-token`)
+  .select()
+
+	if (error) {
+		console.log('error mag?', error);
+		throw error;
+	}
+	return new Response(JSON.stringify(data), {
+		headers: {
+			...corsHeaders,
+			'Content-Type': 'application/json'
+		},
+		status: 200
+	});
 
 
-
+/**
+	
 	
 	let query = supabase.from(`${chain}-token`).select('decimals, name, symbol, address, logo, has_permit, price_usd');
 	
@@ -50,4 +66,8 @@ export const getToken = async (chain, req) => {
 		},
 		status: 200
 	});
+
+
+*/
+	
 };
