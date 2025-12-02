@@ -1,6 +1,6 @@
 import { corsHeaders } from '../_cors.ts';
 import { supabase } from '../_database.ts';
-import { config } from '../config.ts';
+import { config } from '../_config.ts';
 
 
 export const getTokenPrices = async (chain, req) => {
