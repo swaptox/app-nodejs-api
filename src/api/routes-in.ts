@@ -3,9 +3,9 @@ import { Interface } from 'https://esm.sh/ethers@5.7.2/lib/utils';
 
 import { corsHeaders } from '../_cors.ts';
 import { supabase } from '../_database.ts';
-import { config } from '../config.ts';
+import { config } from '../_config.ts';
 
-import routeAbi from '../abi/routeAbi.json';
+import routeAbi from '../abi/routeAbi.json' with { type: 'json' };
 
 function getPoolId(token0, token1) {
 	return BigInt(token0) < BigInt(token1) ? `${token0.toLowerCase()}-${token1.toLowerCase()}` : `${token1.toLowerCase()}-${token0.toLowerCase()}`;
